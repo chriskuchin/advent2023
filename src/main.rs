@@ -2,6 +2,8 @@ use clap::{Parser, Subcommand};
 use std::time::Instant;
 
 mod day1;
+mod day2;
+mod util;
 
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
@@ -27,7 +29,7 @@ fn main() {
     let start = Instant::now();
     match cli.command {
         Some(Commands::Day1 {}) => day1::solve(),
-        Some(Commands::Day2 {}) => println!("unsolved"),
+        Some(Commands::Day2 {}) => day2::solve(),
         Some(Commands::Day3 {}) => println!("unsolved"),
         None => println!("failed"),
     }

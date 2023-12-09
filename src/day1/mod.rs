@@ -1,7 +1,6 @@
 use regex::Regex;
-use std::fs::File;
-use std::io::{self, BufRead};
-use std::path::Path;
+
+use crate::util::read_lines;
 
 pub fn solve() {
     let mut part1: i32 = 0;
@@ -63,14 +62,6 @@ fn process_calibration_with_words(input: &str) -> i32 {
         .replace("nine", "9");
 
     extract_calibration_value(processed.as_str())
-}
-
-fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
-where
-    P: AsRef<Path>,
-{
-    let file = File::open(filename)?;
-    Ok(io::BufReader::new(file).lines())
 }
 
 #[cfg(test)]
